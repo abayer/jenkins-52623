@@ -13,8 +13,10 @@ pipeline {
   stages {
     stage('Echo SCM env') {
       steps {
-        sh 'echo GIT_BRANCH is ${GIT_BRANCH}'
+        container('maven') {
+          sh 'echo GIT_BRANCH is ${GIT_BRANCH}'
+	}
       }
-	  }
+    }
   }
 }
